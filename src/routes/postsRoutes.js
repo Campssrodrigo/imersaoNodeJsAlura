@@ -27,7 +27,7 @@ const upload = multer({ storage: storage });
 const routes = (app) => {
   // Permite que o servidor interprete corpos de requisições no formato JSON
   app.use(express.json());
-  app.use(cors(corsOptions))
+  app.use(cors(corsOptions));
   // Rota para recuperar uma lista de todos os posts
   app.get("/posts", listarPosts); // Chama a função controladora apropriada
 
@@ -37,7 +37,7 @@ const routes = (app) => {
   // Rota para upload de imagens (assumindo uma única imagem chamada "imagem")
   app.post("/upload", upload.single("imagem"), uploadImagem); // Chama a função controladora para processamento da imagem`
 
-  app.put("/upload/:id", atualizarNovoPost)
+  app.put("/upload/:id", atualizarNovoPost);
 };
 
 export default routes;
